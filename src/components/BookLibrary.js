@@ -1,10 +1,26 @@
 import React, {Component} from 'react'
 import BookCategory from './BookCategory';
 import {Link} from 'react-router-dom'
+import * as BooksAPI from '../BooksAPI'
 
 class BookLibrary extends Component{
-    state={}
+  constructor(props) {// initialized state for all BookLibrary/Shelf component to be an array to hold books
+    super(props);
+    this.state = {
+       books: []
+    }
+ }
+
+    componentWillMount(){
+      //access the book api, send a fetch method for full collection to populate the site
+      BooksAPI.getAll().then(function (responseCollected){
+        //this.setState({book:responseCollected});
+        console.log(responseCollected);
+      })
+    }  
+  
     render(){
+      var bookFilter = this.state.books;//shortens code
         return(
             <div className="app">
 
@@ -15,9 +31,9 @@ class BookLibrary extends Component{
                 <div className="list-books-content">
                   <div>
                     
-                      <BookCategory/>
-                      <BookCategory/>
-                      <BookCategory/>
+                      <BookCategory name="Currently Reading" books={bookFilter.filter(abook=>abook.BookCategory==="currentlyReading")}/>
+                      <BookCategory name="Want to Read" books={bookFilter.filter(abook=>abook.BookCategory==="wantToRead")}/>
+                      <BookCategory name="Read" books={bookFilter.filter(abook=>abook.BookCategory==="read")}/>
                   </div>
                 </div>
                 <div className="open-search">
