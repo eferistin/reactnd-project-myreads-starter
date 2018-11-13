@@ -3,7 +3,7 @@ import Book from './Book';
 
 class BookCategory extends Component{
     componentWillMount(){
-        console.log(this);
+        console.log(this.props.books);
     }
     
     render(){

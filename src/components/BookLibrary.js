@@ -18,6 +18,8 @@ class BookLibrary extends Component{
       BooksAPI.getAll()
       .then(responseCollected => {
          this.setState({books:responseCollected});
+         console.log('books retrieved');
+         console.log(this.state.books);
       })
     }  
   
@@ -33,9 +35,9 @@ class BookLibrary extends Component{
                 <div className="list-books-content">
                   <div>
                     
-                      <BookCategory name="Currently Reading" books={bookFilter.filter(abook=>abook.BookCategory==="currentlyReading")}/>
-                      <BookCategory name="Want to Read" books={bookFilter.filter(abook=>abook.BookCategory==="wantToRead")}/>
-                      <BookCategory name="Read" books={bookFilter.filter(abook=>abook.BookCategory==="read")}/>
+                      <BookCategory name="Currently Reading" books={bookFilter.filter(abook=>abook.shelf==="currentlyReading")}/>
+                      <BookCategory name="Want to Read" books={bookFilter.filter(abook=>abook.shelf==="wantToRead")}/>
+                      <BookCategory name="Read" books={bookFilter.filter(abook=>abook.shelf==="read")}/>
                   </div>
                 </div>
                 <div className="open-search">
