@@ -2,8 +2,12 @@ import React, {Component} from 'react'
 import ShelfChanger from './ShelfChanger';
 
 class Book extends Component{
+    componentWillMount(){
+        console.log(this);
+    }
     state={}
     render(){
+        var bookInfo = this.props.books;//shortens code
         return(
             <div className="book">
             <div className="book-top">
@@ -11,8 +15,8 @@ class Book extends Component{
 
             <ShelfChanger/>
             </div>
-            <div className="book-title">1776</div>
-            <div className="book-authors">David McCullough</div>
+            {/* <div className="book-title">{bookInfo.title}</div>
+            <div className="book-authors">{bookInfo.authors ? bookInfo.authors[0] : "Ghost Writer, no author."}</div> */}
         </div>
         
         )

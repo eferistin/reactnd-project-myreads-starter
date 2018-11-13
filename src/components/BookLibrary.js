@@ -13,9 +13,11 @@ class BookLibrary extends Component{
 
     componentWillMount(){
       //access the book api, send a fetch method for full collection to populate the site
-      BooksAPI.getAll().then(function (responseCollected){
-        //this.setState({book:responseCollected});
-        console.log(responseCollected);
+      // must use arrow function or else it breaks
+      
+      BooksAPI.getAll()
+      .then(responseCollected => {
+         this.setState({books:responseCollected});
       })
     }  
   
