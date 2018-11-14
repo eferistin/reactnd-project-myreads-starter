@@ -8,7 +8,7 @@ class Book extends Component{
     state={}
     render(){
         var bookInfo = this.props;//shortens code
-        var bookPic = bookInfo.imageLinks.thumbnail ? bookInfo.imageLinks.thumbnail : ''; //shorten, if there is a picture use it
+        var bookPic = bookInfo.imageLinks.thumbnail ? bookInfo.imageLinks.thumbnail : ''; //shortens, if there is a picture use it
         return(
             <div className="book">
             <div className="book-top">
@@ -16,8 +16,9 @@ class Book extends Component{
 
             <ShelfChanger/>
             </div>
-            {/* <div className="book-title">{bookInfo.books.title}</div>
-            <div className="book-authors">{bookInfo.books.authors ? bookInfo.books.authors[0] : "Ghost Writer, no author."}</div> */}
+            <div className="book-title">{bookInfo.title}</div>
+            {/* //if there are authors put the value in, if not put ghost writer */}
+            <div className="book-authors">{bookInfo.authors ? bookInfo.authors[0] : "Ghost Writer, no author."}</div>
         </div>
         
         )

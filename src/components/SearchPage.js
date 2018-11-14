@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 class Searchpage extends Component{
     state={}
     render(){
+      const { books } = this.props
         return(
             
           <div className="search-books">

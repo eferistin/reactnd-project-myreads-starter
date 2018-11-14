@@ -13,7 +13,7 @@ class BookCategory extends Component{
                 <div className="bookshelf-books">
                     <ol className="books-grid">
                         {
-
+                            // check if there are books then for each book provides an id for the key
                             this.props.books && this.props.books.map(abook => <Book  key={abook.id} {...abook}/>)
                     
                         }
