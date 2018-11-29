@@ -7,14 +7,16 @@ class Book extends Component{
     }
     state={}
     render(){
-        var bookInfo = this.props;//shortens code
+        // var bookInfo = this.props;//shortens code
+        const { bookInfo , shelfSwapper } = this.props
+
         var bookPic = bookInfo.imageLinks.thumbnail ? bookInfo.imageLinks.thumbnail : ''; //shortens, if there is a picture use it
         return(
             <div className="book">
             <div className="book-top">
             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${bookPic})` }}></div>
 
-            <ShelfChanger/>
+            <ShelfChanger shelfSwapper={shelfSwapper} book={this.props.abook}/>
             </div>
             <div className="book-title">{bookInfo.title}</div>
             {/* //if there are authors put the value in, if not put ghost writer */}

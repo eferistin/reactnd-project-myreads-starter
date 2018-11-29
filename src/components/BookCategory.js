@@ -7,6 +7,7 @@ class BookCategory extends Component{
     }
     
     render(){
+        const { books, shelfSwapper } = this.props
         return(
             <div className="bookshelf">
                 <h2 className="bookshelf-title">{this.props.name}</h2>
@@ -14,7 +15,7 @@ class BookCategory extends Component{
                     <ol className="books-grid">
                         {
                             // check if there are books then for each book provides an id for the key
-                            this.props.books && this.props.books.map(abook => <Book  key={abook.id} {...abook}/>)
+                            this.props.books && this.props.books.map(abook => <Book  key={abook.id} {...abook} shelfSwapper={shelfSwapper}/>)
                     
                         }
                         

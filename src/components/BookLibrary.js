@@ -12,7 +12,7 @@ class BookLibrary extends Component{
   
     render(){
       // var bookFilter = this.props;//shortens code
-      const { books } = this.props
+      const { books, shelfSwapper } = this.props
         return(
             <div className="app">
 
@@ -23,9 +23,9 @@ class BookLibrary extends Component{
                 <div className="list-books-content">
                   <div>
                     
-                      <BookCategory name="Currently Reading" books={books.filter(abook=>abook.shelf==="currentlyReading")}/>
-                      <BookCategory name="Want to Read" books={books.filter(abook=>abook.shelf==="wantToRead")}/>
-                      <BookCategory name="Read" books={books.filter(abook=>abook.shelf==="read")}/>
+                      <BookCategory name="Currently Reading" books={books.filter(abook=>abook.shelf==="currentlyReading")} shelfSwapper={shelfSwapper}/>
+                      <BookCategory name="Want to Read" books={books.filter(abook=>abook.shelf==="wantToRead")} shelfSwapper={shelfSwapper}/>
+                      <BookCategory name="Read" books={books.filter(abook=>abook.shelf==="read")} shelfSwapper={shelfSwapper}/>
                   </div>
                 </div>
                 <div className="open-search">

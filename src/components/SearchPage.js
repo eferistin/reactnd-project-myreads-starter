@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import Book from './Book';
 import {Link} from 'react-router-dom'
+import ShelfChanger from './ShelfChanger';
 
 class Searchpage extends Component{
-    state={}
+    state={query: ''}
+    
     render(){
       const { books } = this.props
         return(
