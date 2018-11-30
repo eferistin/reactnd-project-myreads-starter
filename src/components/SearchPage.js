@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Book from './Book';
 import {Link} from 'react-router-dom'
 import ShelfChanger from './ShelfChanger';
+import * as BooksAPI from '../BooksAPI'
 
 class Searchpage extends Component{
     state={query: ''}
